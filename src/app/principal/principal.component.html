@@ -1,0 +1,4 @@
+<app-navbar (moduloSeleccionado)="moduloActual = $event"></app-navbar>
+<ng-container *ngIf="moduloActual === 'asociacion-ordenes'">
+  <app-asociacion-ordenes></app-asociacion-ordenes>
+</ng-container>

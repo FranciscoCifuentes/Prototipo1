@@ -1,0 +1,63 @@
+<style>
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #f5f5f5;
+    }
+    mat-card {
+        width: 100%;
+        max-width: 400px;
+        padding: 2rem;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+        border-radius: 16px;
+    }
+    .full-width {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+</style>
+<div class="login-container">
+    <mat-card>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <h2>Iniciar Sesión</h2>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Rol</mat-label>
+                <mat-select formControlName="rol">
+                    <mat-option *ngFor="let r of roles" [value]="r.value">{{ r.viewValue }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="rol?.hasError('required') && rol?.touched">
+                    El rol es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Usuario</mat-label>
+                <input matInput formControlName="usuario" autocomplete="username">
+                <mat-error *ngIf="usuario?.hasError('required') && usuario?.touched">
+                    El usuario es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Contraseña</mat-label>
+                <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="contrasena" autocomplete="current-password">
+                <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
+                    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+                <mat-error *ngIf="contrasena?.hasError('required') && contrasena?.touched">
+                    La contraseña es obligatoria.
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" class="full-width">
+                Login
+            </button>
+                </form>
+                <div *ngIf="mensajeAcceso" style="margin-top: 1rem; text-align: center; color: #1976d2; font-weight: bold;">
+                    {{ mensajeAcceso }}
+                </div>
+        </mat-card>
+</div>
