@@ -1,0 +1,50 @@
+<p-card *ngIf="sentencia" styleClass="ordenes-card">
+  <div class="ordenes-header">
+    <span class="ordenes-title">Sistematización de Órdenes</span>
+    <span class="ordenes-id">[Id Sentencia: {{sentencia.nro_sentencia}}]</span>
+    <button class="add-orden">+ Adicionar orden</button>
+  </div>
+  <form class="ordenes-filtros">
+    <input placeholder="ID [Solo números]" />
+    <input placeholder="No. Orden [Solo números]" />
+    <input placeholder="Tipología [texto libre]" />
+    <select>
+      <option>Seleccione</option>
+    </select>
+    <button class="aplicar">Aplicar filtros</button>
+    <button class="restablecer">Restablecer filtros</button>
+  </form>
+  <p-table [value]="sentencia?.ordenes || []" styleClass="p-datatable-sm" style="width: 100%; margin-bottom: 1rem;">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>No Orden</th>
+        <th>Tipología</th>
+        <th>Estado</th>
+        <th>Descripción de la orden</th>
+        <th>Acciones orden</th>
+        <th>Asociar a</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-orden let-rowIndex="rowIndex">
+      <tr>
+        <td>{{orden.id}}</td>
+        <td>{{sentencia.nro_sentencia}}</td>
+        <td>{{orden.tipologia}}</td>
+        <td><span class="estado-dot"></span> <span class="estado-ejecucion">{{orden.estado}}</span></td>
+        <td>{{orden.descripcion}}</td>
+        <td>
+          <button pButton type="button" icon="pi pi-eye" class="p-button-sm p-button-text"></button>
+          <button pButton type="button" icon="pi pi-pencil" class="p-button-sm p-button-text"></button>
+          <button pButton type="button" icon="pi pi-trash" class="p-button-sm p-button-text"></button>
+        </td>
+        <td><button pButton type="button" icon="pi pi-link" class="p-button-sm p-button-text"></button></td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="7" style="text-align:center; color:#888;">No hay órdenes para mostrar.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>

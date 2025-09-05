@@ -1,0 +1,12 @@
+<app-navbar (moduloSeleccionado)="moduloActual = $event"></app-navbar>
+<p-card *ngIf="moduloActual === 'gestion-sentencias'" styleClass="main-card">
+  <app-gestion-sentencias (abrirOrden)="mostrarGestionOrdenes($event)"></app-gestion-sentencias>
+</p-card>
+<p-card *ngIf="moduloActual === 'gestion-ordenes'" styleClass="main-card">
+  <nav style="margin: 1rem 0;">
+    <span style="color: #1976d2; cursor: pointer;" (click)="volverAListado()">Sentencias</span>
+    <span> / </span>
+    <span>Orden {{sentenciaSeleccionada}}</span>
+  </nav>
+  <app-gestion-ordenes [sentenciaId]="sentenciaSeleccionada"></app-gestion-ordenes>
+</p-card>

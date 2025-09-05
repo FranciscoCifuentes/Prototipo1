@@ -1,0 +1,192 @@
+[
+  {
+    "id": 1,
+    "nro_sentencia": "SNT-001",
+    "descripcion": "Sentencia relacionada con un proceso civil",
+    "ordenes": [
+      {
+        "id": "ORD-001",
+        "tipologia": "Medida Cautelar",
+        "estado": "Activa",
+        "descripcion": "Embargo preventivo sobre bienes inmuebles"
+      },
+      {
+        "id": "ORD-002",
+        "tipologia": "Notificación",
+        "estado": "Pendiente",
+        "descripcion": "Notificación al demandado"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nro_sentencia": "SNT-002",
+    "descripcion": "Sentencia en materia laboral",
+    "ordenes": [
+      {
+        "id": "ORD-003",
+        "tipologia": "Pago de Prestaciones",
+        "estado": "Cumplida",
+        "descripcion": "Pago de liquidación laboral al trabajador"
+      },
+      {
+        "id": "ORD-004",
+        "tipologia": "Notificación",
+        "estado": "Activa",
+        "descripcion": "Notificación al empleador sobre cumplimiento"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nro_sentencia": "SNT-003",
+    "descripcion": "Sentencia penal por hurto calificado",
+    "ordenes": [
+      {
+        "id": "ORD-005",
+        "tipologia": "Privación de libertad",
+        "estado": "Ejecutada",
+        "descripcion": "Cumplimiento de condena en establecimiento carcelario"
+      },
+      {
+        "id": "ORD-006",
+        "tipologia": "Reparación a la víctima",
+        "estado": "Pendiente",
+        "descripcion": "Indemnización económica a la víctima"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "nro_sentencia": "SNT-004",
+    "descripcion": "Sentencia de divorcio",
+    "ordenes": [
+      {
+        "id": "ORD-007",
+        "tipologia": "Custodia",
+        "estado": "Activa",
+        "descripcion": "Asignación de custodia a la madre"
+      },
+      {
+        "id": "ORD-008",
+        "tipologia": "Pensión Alimentaria",
+        "estado": "Cumplida",
+        "descripcion": "Pago mensual de pensión alimentaria"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "nro_sentencia": "SNT-005",
+    "descripcion": "Sentencia ambiental sobre uso de recursos",
+    "ordenes": [
+      {
+        "id": "ORD-009",
+        "tipologia": "Suspensión de Actividad",
+        "estado": "Activa",
+        "descripcion": "Suspensión de actividad minera ilegal"
+      },
+      {
+        "id": "ORD-010",
+        "tipologia": "Restauración Ambiental",
+        "estado": "Pendiente",
+        "descripcion": "Plan de reforestación de la zona afectada"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "nro_sentencia": "SNT-006",
+    "descripcion": "Sentencia administrativa sobre contratación pública",
+    "ordenes": [
+      {
+        "id": "ORD-011",
+        "tipologia": "Sanción Económica",
+        "estado": "Activa",
+        "descripcion": "Multa a la empresa por incumplimiento contractual"
+      },
+      {
+        "id": "ORD-012",
+        "tipologia": "Inhabilitación",
+        "estado": "Cumplida",
+        "descripcion": "Inhabilitación para contratar con el Estado por 5 años"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "nro_sentencia": "SNT-007",
+    "descripcion": "Sentencia de restitución de tierras",
+    "ordenes": [
+      {
+        "id": "ORD-013",
+        "tipologia": "Restitución",
+        "estado": "Pendiente",
+        "descripcion": "Devolución del predio a los campesinos desplazados"
+      },
+      {
+        "id": "ORD-014",
+        "tipologia": "Protección",
+        "estado": "Activa",
+        "descripcion": "Garantizar seguridad de las familias restituidas"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "nro_sentencia": "SNT-008",
+    "descripcion": "Sentencia tributaria contra evasión fiscal",
+    "ordenes": [
+      {
+        "id": "ORD-015",
+        "tipologia": "Pago Obligatorio",
+        "estado": "Cumplida",
+        "descripcion": "Pago de impuestos adeudados"
+      },
+      {
+        "id": "ORD-016",
+        "tipologia": "Sanción Económica",
+        "estado": "Pendiente",
+        "descripcion": "Pago de multa por evasión fiscal"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "nro_sentencia": "SNT-009",
+    "descripcion": "Sentencia sobre propiedad intelectual",
+    "ordenes": [
+      {
+        "id": "ORD-017",
+        "tipologia": "Cese de Actividad",
+        "estado": "Activa",
+        "descripcion": "Suspensión inmediata de la venta de productos plagiados"
+      },
+      {
+        "id": "ORD-018",
+        "tipologia": "Indemnización",
+        "estado": "Pendiente",
+        "descripcion": "Pago de compensación al autor original"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "nro_sentencia": "SNT-010",
+    "descripcion": "Sentencia disciplinaria contra funcionario público",
+    "ordenes": [
+      {
+        "id": "ORD-019",
+        "tipologia": "Suspensión",
+        "estado": "Ejecutada",
+        "descripcion": "Suspensión del cargo por 6 meses"
+      },
+      {
+        "id": "ORD-020",
+        "tipologia": "Sanción Económica",
+        "estado": "Activa",
+        "descripcion": "Descuento salarial como sanción disciplinaria"
+      }
+    ]
+  }
+]
