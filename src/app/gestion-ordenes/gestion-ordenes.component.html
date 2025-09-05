@@ -14,7 +14,7 @@
     <button class="aplicar">Aplicar filtros</button>
     <button class="restablecer">Restablecer filtros</button>
   </form>
-  <p-table [value]="sentencia?.ordenes || []" styleClass="p-datatable-sm" style="width: 100%; margin-bottom: 1rem;">
+  <p-table [value]="sentencia.ordenes || []" styleClass="p-datatable-sm" style="width: 100%; margin-bottom: 1rem;">
     <ng-template pTemplate="header">
       <tr>
         <th>Id</th>
