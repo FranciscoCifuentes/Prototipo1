@@ -6,7 +6,7 @@
         min-height: 100vh;
         background: #f5f5f5;
     }
-    mat-card {
+    .p-card {
         width: 100%;
         max-width: 400px;
         padding: 2rem;
@@ -23,41 +23,31 @@
     }
 </style>
 <div class="login-container">
-    <mat-card>
+    <p-card>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <h2>Iniciar Sesión</h2>
-            <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Rol</mat-label>
-                <mat-select formControlName="rol">
-                    <mat-option *ngFor="let r of roles" [value]="r.value">{{ r.viewValue }}</mat-option>
-                </mat-select>
-                <mat-error *ngIf="rol?.hasError('required') && rol?.touched">
-                    El rol es obligatorio.
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Usuario</mat-label>
-                <input matInput formControlName="usuario" autocomplete="username">
-                <mat-error *ngIf="usuario?.hasError('required') && usuario?.touched">
-                    El usuario es obligatorio.
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Contraseña</mat-label>
-                <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="contrasena" autocomplete="current-password">
-                <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
-                    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-                </button>
-                <mat-error *ngIf="contrasena?.hasError('required') && contrasena?.touched">
-                    La contraseña es obligatoria.
-                </mat-error>
-            </mat-form-field>
-            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" class="full-width">
-                Login
-            </button>
-                </form>
-                <div *ngIf="mensajeAcceso" style="margin-top: 1rem; text-align: center; color: #1976d2; font-weight: bold;">
-                    {{ mensajeAcceso }}
+            <div class="full-width">
+                <label for="rol">Rol</label>
+                <p-select [options]="roles" optionLabel="viewValue" optionValue="value" formControlName="rol" placeholder="Seleccione rol"></p-select>
+                <small *ngIf="rol?.hasError('required') && rol?.touched" class="p-error">El rol es obligatorio.</small>
+            </div>
+            <div class="full-width">
+                <label for="usuario">Usuario</label>
+                <input pInputText formControlName="usuario" autocomplete="username" />
+                <small *ngIf="usuario?.hasError('required') && usuario?.touched" class="p-error">El usuario es obligatorio.</small>
+            </div>
+            <div class="full-width">
+                <label for="contrasena">Contraseña</label>
+                <div style="display: flex; align-items: center;">
+                    <input pInputText [type]="hidePassword ? 'password' : 'text'" formControlName="contrasena" autocomplete="current-password" style="flex:1;" />
+                    <button pButton type="button" icon="pi pi-eye" (click)="togglePasswordVisibility()" style="margin-left: 0.5rem;"></button>
                 </div>
-        </mat-card>
+                <small *ngIf="contrasena?.hasError('required') && contrasena?.touched" class="p-error">La contraseña es obligatoria.</small>
+            </div>
+            <button pButton type="submit" label="Login" [disabled]="loginForm.invalid" class="full-width p-button-primary"></button>
+        </form>
+        <div *ngIf="mensajeAcceso" style="margin-top: 1rem; text-align: center; color: #1976d2; font-weight: bold;">
+            {{ mensajeAcceso }}
+        </div>
+    </p-card>
 </div>

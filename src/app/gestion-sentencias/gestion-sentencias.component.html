@@ -1,0 +1,33 @@
+<div style="margin: 2rem;">
+  <form>
+    <!-- <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 1rem;">
+      <mat-label>Buscar sentencia</mat-label>
+      <input matInput name="buscarSentencia">
+    </mat-form-field> -->
+
+    <p-table [value]="dataSource" styleClass="p-datatable-sm" style="width: 100%; margin-bottom: 1rem;">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Nro Sentencia</th>
+          <th>Descripción</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-row>
+        <tr>
+          <td>{{row.id}}</td>
+          <td>{{row.nro_sentencia}}</td>
+          <td>{{row.descripcion}}</td>
+          <td>{{row.estado}}</td>
+          <td>
+            <button pButton type="button" label="Ordenes" icon="pi pi-list" class="p-button-sm p-button-info" (click)="abrirModalOrdenes(row.id)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <!-- <button mat-raised-button color="primary" style="width: 100%;">Guardar</button> -->
+  </form>
+</div>

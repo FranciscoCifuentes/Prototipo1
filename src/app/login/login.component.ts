@@ -3,15 +3,20 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+  login(usuario: string, contrasena: string, rol: string): boolean {
+    return usuario === 'admin' && contrasena === '1234' && rol === 'pro_cumpl';
+  }
+}
 
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { CardModule } from 'primeng/card';
+import { SelectModule } from 'primeng/select';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-login',
@@ -21,12 +26,10 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatIconModule,
-    MatButtonModule
+    CardModule,
+  SelectModule,
+    InputTextModule,
+    ButtonModule
   ]
 })
 export class LoginComponent {
@@ -39,7 +42,7 @@ export class LoginComponent {
 
   mensajeAcceso = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
     this.loginForm = this.fb.group({
       usuario: ['', Validators.required],
       contrasena: ['', Validators.required],
@@ -55,7 +58,7 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const { usuario, contrasena, rol } = this.loginForm.value;
-      if (usuario === 'admin' && contrasena === '1234' && rol === 'pro_cumpl') {
+      if (this.authService.login(usuario, contrasena, rol)) {
         this.mensajeAcceso = 'Acceso concedido';
         setTimeout(() => {
           this.router.navigate(['/principal']);

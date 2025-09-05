@@ -1,17 +1,9 @@
-<mat-toolbar color="primary">
-  <span>Mi Aplicación</span>
-  <span class="spacer"></span>
-  <button mat-button [matMenuTriggerFor]="postfalloMenu">Postfallo</button>
-  <mat-menu #postfalloMenu="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="sentenciasMenu">Gestión de sentencias</button>
-  </mat-menu>
-  <mat-menu #sentenciasMenu="matMenu">
-  <button mat-menu-item (click)="seleccionarModulo('asociacion-ordenes')">Asociación órdenes</button>
-  </mat-menu>
-</mat-toolbar>
-
-<style>
-.spacer {
-  flex: 1 1 auto;
-}
-</style>
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <span>Mi Aplicación</span>
+  </div>
+  <div class="p-toolbar-group-right">
+    <p-menu #postfalloMenu [model]="menuItems"></p-menu>
+    <button pButton type="button" label="Postfallo" icon="pi pi-bars" (click)="postfalloMenu.toggle($event)"></button>
+  </div>
+</p-toolbar>
