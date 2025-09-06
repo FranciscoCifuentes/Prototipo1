@@ -1,29 +1,33 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ToolbarModule } from 'primeng/toolbar';
-import { MenuModule } from 'primeng/menu';
-import { ButtonModule } from 'primeng/button';
-import { GestionSentenciasComponent } from '../gestion-sentencias/gestion-sentencias.component';
-
+import { MenubarModule } from 'primeng/menubar';
+import { MenuItem } from 'primeng/api';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  standalone: true,
-  imports: [CommonModule, ToolbarModule, MenuModule, ButtonModule]
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    standalone: true,
+    imports: [CommonModule, MenubarModule]
 })
 export class NavbarComponent {
-  @Output() moduloSeleccionado = new EventEmitter<string>();
+    @Output() moduloSeleccionado = new EventEmitter<string>();
 
-  menuItems = [
-    {
-      label: 'Gestión de sentencias',
-      icon: 'pi pi-list',
-      command: () => this.seleccionarModulo('gestion-sentencias')
+    items: MenuItem[] = [
+        {
+            label: 'Postfallo',
+            icon: 'pi pi-bars',
+            items: [
+                {
+                    label: 'Gestión de sentencias',
+                    icon: 'pi pi-list',
+                    command: () => this.seleccionarModulo('gestion-sentencias')
+                }
+            ]
+        }
+    ];
+
+    seleccionarModulo(modulo: string) {
+        this.moduloSeleccionado.emit(modulo);
     }
-  ];
-
-  seleccionarModulo(modulo: string) {
-    this.moduloSeleccionado.emit(modulo);
-  }
 }

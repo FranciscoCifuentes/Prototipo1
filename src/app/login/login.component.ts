@@ -1,3 +1,4 @@
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 
 
 import { Component } from '@angular/core';
@@ -16,7 +17,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { SelectModule } from 'primeng/select';
 import { InputTextModule } from 'primeng/inputtext';
+// import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { PasswordModule } from 'primeng/password';
+import { MessageModule } from 'primeng/message';
 
 @Component({
   selector: 'app-login',
@@ -27,9 +33,14 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     ReactiveFormsModule,
     CardModule,
-  SelectModule,
+    SelectModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    InputGroupModule,
+    FloatLabelModule,
+    PasswordModule,
+  MessageModule,
+  InputGroupAddonModule
   ]
 })
 export class LoginComponent {
@@ -41,6 +52,7 @@ export class LoginComponent {
   ];
 
   mensajeAcceso = '';
+  submitted = false;
 
   constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
     this.loginForm = this.fb.group({
@@ -54,8 +66,8 @@ export class LoginComponent {
   get contrasena() { return this.loginForm.get('contrasena'); }
   get rol() { return this.loginForm.get('rol'); }
 
-
   onSubmit() {
+    this.submitted = true;
     if (this.loginForm.valid) {
       const { usuario, contrasena, rol } = this.loginForm.value;
       if (this.authService.login(usuario, contrasena, rol)) {
